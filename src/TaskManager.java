@@ -23,6 +23,17 @@ public class TaskManager {
             System.out.println("Task mit ID " + id + " nicht gefunden.");
         }
         return removed;
+
+        //Alternative
+//        for (int i = 0; i < tasks.size(); i++) {
+//            if (tasks.get(i).getId() == id) {
+//                tasks.remove(i);
+//                System.out.println("Task mit ID " + id + " wurde entfernt.");
+//                return true;
+//            }
+//        }
+//        System.out.println("Task mit ID " + id + " nicht gefunden.");
+//        return false;
     }
 
     public boolean updateTaskStatus(int id, Status newStatus) {
@@ -41,7 +52,9 @@ public class TaskManager {
         if (tasks.isEmpty()) {
             System.out.println("Keine Aufgaben vorhanden.");
         } else {
-            tasks.forEach(System.out::println);
+            for(Task task : tasks){
+                System.out.println(task);
+            }
         }
     }
 
@@ -50,10 +63,21 @@ public class TaskManager {
                 .filter(task -> task.getStatus() == status)
                 .toList();
 
+        //Alternative
+//        List<Task> filtered = new ArrayList<>();
+//        for (Task task : tasks) {
+//            if (task.getStatus() == status) {
+//                filtered.add(task);
+//            }
+//        }
+
+
         if (filtered.isEmpty()) {
             System.out.println("Keine Aufgaben mit Status: " + status);
         } else {
-            filtered.forEach(System.out::println);
+            for(Task task : filtered){
+                System.out.println(task);
+            }
         }
     }
 
@@ -65,7 +89,9 @@ public class TaskManager {
         if (filtered.isEmpty()) {
             System.out.println("Keine Aufgaben mit Priorität: " + priority);
         } else {
-            filtered.forEach(System.out::println);
+            for(Task task : filtered){
+                System.out.println(task);
+            }
         }
     }
 
@@ -79,6 +105,27 @@ public class TaskManager {
         long lowPriority = tasks.stream().filter(task -> task.getPriority() == Priority.LOW).count();
         long mediumPriority = tasks.stream().filter(task -> task.getPriority() == Priority.MEDIUM).count();
         long highPriority = tasks.stream().filter(task -> task.getPriority() == Priority.HIGH).count();
+
+//      Alternative
+//        for (Task task : tasks) {
+//            // Status zählen
+//            if (task.getStatus() == Status.OPEN) {
+//                openTasks++;
+//            } else if (task.getStatus() == Status.IN_PROGRESS) {
+//                inProgressTasks++;
+//            } else if (task.getStatus() == Status.DONE) {
+//                doneTasks++;
+//            }
+//
+//            // Priorität zählen
+//            if (task.getPriority() == Priority.LOW) {
+//                lowPriority++;
+//            } else if (task.getPriority() == Priority.MEDIUM) {
+//                mediumPriority++;
+//            } else if (task.getPriority() == Priority.HIGH) {
+//                highPriority++;
+//            }
+//        }
 
         System.out.println("Gesamtanzahl der Aufgaben: " + totalTasks);
         System.out.println("Offene Aufgaben: " + openTasks);
