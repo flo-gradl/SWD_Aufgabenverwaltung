@@ -26,7 +26,7 @@ public class Main {
         System.out.println("\n--- Aufgabe löschen ---");
         manager.removeTask(2);
 
-        System.out.println("\n--- Alle Aufgaben (nach Änderungen) ---");
+        System.out.println("\n--- Alle Aufgaben ---");
         manager.listTasks();
 
         System.out.println("\n--- Aufgaben Statistik ---");
