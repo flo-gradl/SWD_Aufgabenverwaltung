@@ -48,7 +48,7 @@ public class TaskManager {
     public void listTasksByStatus(Status status) {
         List<Task> filtered = tasks.stream()
                 .filter(task -> task.getStatus() == status)
-                .collect(Collectors.toList());
+                .toList();
 
         if (filtered.isEmpty()) {
             System.out.println("Keine Aufgaben mit Status: " + status);
@@ -60,7 +60,7 @@ public class TaskManager {
     public void listTasksByPriority(Priority priority) {
         List<Task> filtered = tasks.stream()
                 .filter(task -> task.getPriority() == priority)
-                .collect(Collectors.toList());
+                .toList();
 
         if (filtered.isEmpty()) {
             System.out.println("Keine Aufgaben mit Priorität: " + priority);
